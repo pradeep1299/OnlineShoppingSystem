@@ -1,0 +1,88 @@
+﻿@model OnlineShoppingSystem_Entity.CustomerEntity
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Account</h2>
+
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Name")
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.customerName)
+                @Html.ValidationMessageFor(model => model.customerName)
+            </td>
+           
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Mobile Number")
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.customerMobile)
+                @Html.ValidationMessageFor(Model => Model.customerMobile)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("E-Mail Address")
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.customerEMail)
+                @Html.ValidationMessageFor(Model => Model.customerEMail)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("PassWord")
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.customerPassword)
+                @Html.ValidationMessageFor(Model => Model.customerPassword)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Confirm PassWord")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.confirmPassword)
+                @Html.ValidationMessageFor(Model => Model.confirmPassword)
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    @Html.Label("Gender")
+
+                </td>
+                <td>
+                    Male
+                    @Html.RadioButtonFor(model => model.gender, "Male")
+                    Female
+                    @Html.RadioButtonFor(model => model.gender, "Female")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Category")
+
+                </td>
+                <td>
+                    @Html.EnumDropDownListFor(model => model.category, "Select Category")
+                </td>
+            </tr>*@
+        <tr>
+            <td>
+                <input type="button" id="backbtn" value="Back" />
+            </td>
+            <td>
+                <input type="submit" id="signupSubmit" />
+            </td>
+        </tr>
+    </table>
+}
