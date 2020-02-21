@@ -42,7 +42,7 @@
                 @Html.Label("PassWord")
             </td>
             <td>
-                @Html.EditorFor(Model => Model.customerPassword)
+                @Html.PasswordFor(Model => Model.customerPassword)
                 @Html.ValidationMessageFor(Model => Model.customerPassword)
             </td>
         </tr>
@@ -51,7 +51,7 @@
                 @Html.Label("Confirm PassWord")
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.confirmPassword)
+                @Html.PasswordFor(Model => Model.confirmPassword)
                 @Html.ValidationMessageFor(Model => Model.confirmPassword)
             </td>
         </tr>
