@@ -1,0 +1,47 @@
+﻿@model OnlineShoppingSystem_Entity.CustomerEntity
+@{
+    ViewBag.Title = "Login";
+}
+
+<div>
+    @Html.Partial("LoginDesign")
+</div>
+
+<h2>Login Page</h2>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Username")</td>
+            <td>
+                @Html.EditorFor(Model => Model.customerMobile)
+                @*@Html.ValidationMessageFor(model => model.customerMobile)*@
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>
+                @Html.EditorFor(Model => Model.customerPassword)
+                @*@Html.ValidationMessageFor(model => model.customerPassword)*@
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="backbtn" value="Back" />
+            </td>
+            <td>
+                <input type="submit" id="LoginSubmit" value="Login" />
+            </td>
+        </tr>
+    </table>
+    @*<div>
+        @{
+            Html.RenderPartial("Create");
+        }
+        @{ 
+            Html.RenderAction("Login");
+        }
+    </div>*@
+}
+
