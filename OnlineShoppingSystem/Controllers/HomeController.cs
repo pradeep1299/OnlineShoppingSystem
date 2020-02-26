@@ -1,6 +1,8 @@
 ﻿using OnlineShoppingSystem_Entity;
 using OnlineShoppingSystem_DAL;
 using System.Web.Mvc;
+using System.Collections.Generic;
+//using OnlineShoppingSystem.Models;
 
 namespace OnlineShoppingSystem.Controllers
 {
@@ -10,7 +12,8 @@ namespace OnlineShoppingSystem.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            //IEnumerable<CustomerDetails> customer = customerRespository.ReturnCustomerDetails();
+            return View("Index");
         }
         [HttpGet]
         public ActionResult Create()
@@ -18,11 +21,12 @@ namespace OnlineShoppingSystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(CustomerEntity customer)
+        public ActionResult Create(CustomerDetails customer)
         {
-            customerRespository.Add(customer);
+            //CustomerDetails customer = new CustomerDetails();
             if (ModelState.IsValid)
             {
+                customerRespository.Add(customer);
                 Response.Write("Registration Successfully");
                 return View();
             }
@@ -34,7 +38,7 @@ namespace OnlineShoppingSystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(CustomerEntity customer)
+        public ActionResult Login(CustomerDetails customer)
         {
             return View();
         }

@@ -1,22 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace OnlineShoppingSystem_Entity
+namespace OnlineShoppingSystem.Models
 {
-    public class CustomerEntity
+    public class CustomerSignup
     {
-        //public enum Gender
-        //{
-        //    Male,
-        //    Female
-        //}
-        //public enum Category
-        //{
-        //    Mobile_Phones,
-        //    Fashion,
-        //    Toys,
-        //    Fitness,
-        //    Electronics
-        //}
+        public int customerId
+        {
+            get;
+            set;
+        }
         [Required(ErrorMessage = "Enter the name")]
         [RegularExpression(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", ErrorMessage = " Space and numbers not allowed")]
         [StringLength(30, MinimumLength = 5)]
@@ -26,7 +20,7 @@ namespace OnlineShoppingSystem_Entity
             set;
         }
         [Required(ErrorMessage = "Enter the Mobile Number")]
-        [RegularExpression(@"^[6789]\d{9}$", ErrorMessage ="Mobile Number is Invalid")]
+        [RegularExpression(@"^[6789]\d{9}$", ErrorMessage = "Mobile Number is Invalid")]
         public long customerMobile
         {
             get;
@@ -53,20 +47,10 @@ namespace OnlineShoppingSystem_Entity
             get;
             set;
         }
-        //public Gender gender
-        //{
-        //    get;
-        //    set;
-        //}
-        //public Category category
-        //{
-        //    get;
-        //    set;
-        //}
-
-        public CustomerEntity() { }
-        public CustomerEntity(string name,long mobile,string email,string password)
+        public CustomerSignup() { }
+        public CustomerSignup(int id, string name, long mobile, string email, string password)
         {
+            this.customerId = id;
             this.customerName = name;
             this.customerMobile = mobile;
             this.customerEMail = email;

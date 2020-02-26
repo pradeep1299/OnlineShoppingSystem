@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineShoppingSystem_DAL\OnlineShoppingSystem_DAL.csproj">
+      <Project>{eadf3fc1-3c91-476a-9383-b8384e01a317}</Project>
+      <Name>OnlineShoppingSystem_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineShoppingSystem_Entity\OnlineShoppingSystem_Entity.csproj">
+      <Project>{698af574-1a33-4dde-9dbc-3447dd44c167}</Project>
+      <Name>OnlineShoppingSystem_Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
