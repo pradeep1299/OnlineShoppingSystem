@@ -56,11 +56,10 @@ namespace OnlineShoppingSystem_Entity
         }
         //[Required(ErrorMessage = "Confirmation Password is required!!")]
         //[Compare("customerPassword", ErrorMessage = "Password and Confirmation Password must match.")]
-        public string confirmPassword
-        {
-            get;
-            set;
-        }
+        //public string confirmPassword
+        //{
+        //    get;
+        //}
         //public Gender gender
         //{
         //    get;

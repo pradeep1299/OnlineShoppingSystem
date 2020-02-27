@@ -1,18 +1,18 @@
-﻿@model IEnumerable<OnlineShoppingSystem_Entity.CustomerDetails>
+﻿@model IEnumerable<OnlineShoppingSystem.Models.CustomerSignup>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<table border="1">
+@*<table border="1">
     <tr>
         <td>Product Name</td>
         <td>Product Price</td>
         <td>Choice</td>
     </tr>
-    @foreach (OnlineShoppingSystem_Entity.CustomerDetails item in @Model)
-    {
+    @foreach(OnlineShoppingSystem.Models.CustomerSignup item in @Model)
+        {
         <tr>
             <td>
                 @item.customerName
@@ -25,5 +25,5 @@
             </td>
         </tr>
     }
-</table>
+</table>*@
 

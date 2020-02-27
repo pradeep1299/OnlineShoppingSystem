@@ -1,5 +1,5 @@
-﻿using OnlineShoppingSystem_DAL;
-using OnlineShoppingSystem_Entity;
+﻿using OnlineShoppingSystem_Entity;
+using OnlineShoppingSystem_DAL;
 using System.Collections.Generic;
 
 namespace OnlineShoppingSystem_BL

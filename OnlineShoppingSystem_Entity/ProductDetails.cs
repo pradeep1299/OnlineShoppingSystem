@@ -1,7 +1,7 @@
 ﻿
 namespace OnlineShoppingSystem_Entity
 {
-    public class ProductEntity
+    public class ProductDetails
     {
         public string productName
         {
@@ -23,7 +23,7 @@ namespace OnlineShoppingSystem_Entity
             get;
             set;
         }
-        public ProductEntity(string name, int stock, int categoryid, double price)
+        public ProductDetails(string name, int stock, int categoryid, double price)
         {
             this.productName = name;
             this.productStock = stock;
