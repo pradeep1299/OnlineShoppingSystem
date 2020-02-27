@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
     <Compile Include="CustomerRespository.cs" />
     <Compile Include="OnlineShoppingDB_Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

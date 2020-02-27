@@ -32,8 +32,9 @@ namespace OnlineShoppingSystem.Controllers
                 customer.customerEMail = signup.customerEMail;
                 customer.customerPassword = signup.customerPassword;
                 customerBL.AddCustomer(customer);
-                Response.Write("Registration Successfully");
-                return View();
+                //Response.Write("Registration Successfully");
+                return RedirectToAction("Login");
+                //return View();
             }
             return View();
         }
