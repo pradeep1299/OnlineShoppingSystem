@@ -37,7 +37,7 @@ namespace OnlineShoppingSystem.Models
         [StringLength(15, MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Enter your password")]
-        [RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contains upper case, lower case, Numbers, and special character")]
+        [RegularExpression("([a-z]|[A-Z]|[0-9]|[\\W]){4}[a-zA-Z0-9\\W]{3,15}", ErrorMessage = "Password must contains upper case, lower case, Numbers, and special character")]
         public string customerPassword
         {
             get;

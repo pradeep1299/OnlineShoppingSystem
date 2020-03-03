@@ -13,6 +13,11 @@ namespace OnlineShoppingSystem_DAL
         {
             get;
             set;
-        } 
+        }
+        public DbSet<ProductDetails> ProductDB
+        {
+            get;
+            set;
+        }
     }
 }

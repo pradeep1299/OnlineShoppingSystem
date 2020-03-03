@@ -6,8 +6,9 @@
 <h2>Create Account</h2>
 
 
-@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+@using (Html.BeginForm("Create", "Signup", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table>
         <tr>
             <td>
@@ -15,9 +16,9 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.customerName)
-                @Html.ValidationMessageFor(model => model.customerName)
+                @Html.ValidationMessageFor(model => model.customerName, "", new { @style = "color:red" })
             </td>
-           
+
         </tr>
         <tr>
             <td>
@@ -25,7 +26,7 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.customerMobile)
-                @Html.ValidationMessageFor(Model => Model.customerMobile)
+                @Html.ValidationMessageFor(Model => Model.customerMobile, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -34,7 +35,7 @@
             </td>
             <td>
                 @Html.EditorFor(Model => Model.customerEMail)
-                @Html.ValidationMessageFor(Model => Model.customerEMail)
+                @Html.ValidationMessageFor(Model => Model.customerEMail, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -43,7 +44,7 @@
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.customerPassword)
-                @Html.ValidationMessageFor(Model => Model.customerPassword)
+                @Html.ValidationMessageFor(Model => Model.customerPassword, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -52,7 +53,7 @@
             </td>
             <td>
                 @Html.PasswordFor(Model => Model.confirmPassword)
-                @Html.ValidationMessageFor(Model => Model.confirmPassword)
+                @Html.ValidationMessageFor(Model => Model.confirmPassword, "", new { @style = "color:red" })
             </td>
         </tr>
         @*<tr>

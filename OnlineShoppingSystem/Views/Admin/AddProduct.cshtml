@@ -1,0 +1,56 @@
+﻿@model OnlineShoppingSystem.Models.ProductModel
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Product Name")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.productName)
+                @Html.ValidationMessageFor(model => model.productName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Category Id")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.productCategoryId)
+                @Html.ValidationMessageFor(model => model.productCategoryId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Product Price")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.productPrice)
+                @Html.ValidationMessageFor(model => model.productPrice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Available Stock")
+            </td>
+            <td>
+                @Html.EditorFor(model => model.productStock)
+                @Html.ValidationMessageFor(model => model.productStock)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back", "Index")
+            </td>
+            <td>
+                <input  type="submit"/>
+            </td>
+        </tr>
+    </table>
+}
