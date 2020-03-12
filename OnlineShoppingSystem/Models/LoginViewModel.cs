@@ -2,11 +2,11 @@
 
 namespace OnlineShoppingSystem.Models
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         [Required(ErrorMessage ="Username is required")]
         //[Display(Name ="Username")]
-        public string username
+        public string Username
         {
             get;
             set;
@@ -14,16 +14,16 @@ namespace OnlineShoppingSystem.Models
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
         //[Display(Name = "Password")]
-        public string password
+        public string Password
         {
             get;
             set;
         }
-        public LoginModel() { }
-        public LoginModel(string name, string key)
-        {
-            name = username;
-            key = password;
-        }
+        //public LoginViewModel() { }
+        //public LoginViewModel(string name, string key)
+        //{
+        //    name = Username;
+        //    key = Password;
+        //}
     }
 }

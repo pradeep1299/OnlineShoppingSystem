@@ -1,0 +1,36 @@
+﻿@model OnlineShoppingSystem.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<h2>Login Page</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td>@Html.Label("Username")</td>
+            <td>
+                @Html.EditorFor(Model => Model.Username)
+                @Html.ValidationMessageFor(Model => Model.Username, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>
+                @Html.EditorFor(Model => Model.Password)
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @style = "color:red" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" id="LoginSubmit" value="Login" />
+            </td>
+        </tr>
+    </table>
+}

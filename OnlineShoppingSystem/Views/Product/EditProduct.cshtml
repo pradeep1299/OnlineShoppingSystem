@@ -1,0 +1,49 @@
+﻿@model OnlineShoppingSystem.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+<h2>Update Product</h2>
+
+@using (Html.BeginForm("EditProduct", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProductId)
+    @Html.HiddenFor(model => model.CategoryId)
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductName)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ProductName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductPrice)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ProductPrice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ProductStock)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ProductStock)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back", "Index")
+            </td>
+            <td>
+                <input type="submit" value="Update" />
+            </td>
+        </tr>
+    </table>
+}
+

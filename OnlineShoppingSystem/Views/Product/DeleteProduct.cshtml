@@ -1,0 +1,53 @@
+﻿@model OnlineShoppingSystem.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>Delete Product</h2>
+@using (Html.BeginForm("DeleteProduct", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.ProductId)
+    @*@Html.HiddenFor(Model => Model.productName )
+        @Html.HiddenFor(Model => Model.productPrice )
+        @Html.HiddenFor(Model => Model.productStock )
+        @Html.HiddenFor(Model => Model.productCategoryId )*@
+    <table>
+        <tr>
+            <td>
+                Product Name
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Product Price
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductPrice)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Stock
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductStock)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Category Id
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.CategoryId)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Delete" />
+    @Html.ActionLink("Back", "Index")
+}
+

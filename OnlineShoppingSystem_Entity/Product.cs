@@ -3,51 +3,56 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineShoppingSystem_Entity
 {
-    public class ProductDetails
+    public class Product
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [Column("Product ID")]
-        public int productId
+        public int ProductId
         {
             get;
             set;
         }
         [Column("Name")]
-        public string productName
+        public string ProductName
         {
             get;
             set;
         }
         [Column("Avaliable Stock")]
-        public int productStock
+        public int ProductStock
+        {
+            get;
+            set;
+        }   
+        [Column("Category ID")]
+        public int CategoryId
         {
             get;
             set;
         }
-        [Column("Category ID")]
-        public int productCategoryId
+        public Category Category
         {
             get;
             set;
         }
         [Column("Price")]
-        public double productPrice
+        public double ProductPrice
         {
             get;
             set;
         }
-        public ProductDetails()
+        public Product()
         {
 
         }
-        public ProductDetails(int id,string name, int stock, int categoryid, double price)
+        public Product(int id,string name, int stock, int categoryid, double price)
         {
-            this.productId = id;
-            this.productName = name;
-            this.productStock = stock;
-            this.productCategoryId = categoryid;
-            this.productPrice = price;
+            this.ProductId = id;
+            this.ProductName = name;
+            this.ProductStock = stock;
+            this.CategoryId = categoryid;
+            this.ProductPrice = price;
         }
     }
 }

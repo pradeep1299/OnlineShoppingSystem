@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
-
+using System.Data.Entity;
 
 namespace OnlineShoppingSystem_DAL
 {
@@ -10,33 +10,37 @@ namespace OnlineShoppingSystem_DAL
     {
         public static string userRole;
         //public static List<CustomerDetails> customers = new List<CustomerDetails>();
-        OnlineShoppingDB_Context context = new OnlineShoppingDB_Context();
 
         public IEnumerable<CustomerDetails> GetCustomer()
         {
+            using(OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                return context.Customers.ToList();
+            }
             // return new List<CustomerDetails>();
-            return context.CustomerDB.ToList();
         }
         public void Add(CustomerDetails customer)
         {
-            context.CustomerDB.Add(customer);
-            context.SaveChanges();
-        }
-        public static string LoginValidate(CustomerDetails customer)
-        {
-            OnlineShoppingDB_Context context = new OnlineShoppingDB_Context();
-            //bool isvalue = false;
-            IEnumerable<CustomerDetails> user = context.CustomerDB.ToList();
-            foreach(var value in user)
+            using(OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
             {
-                if((customer.customerEMail == value.customerEMail|| customer.customerMobile == value.customerMobile) && customer.customerPassword == value.customerPassword)
+                context.Entry(customer).State = EntityState.Added;
+                context.SaveChanges();
+            }
+        }
+        public static CustomerDetails LoginValidate(CustomerDetails customer)
+        {
+            using (OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                customer = context.Customers.Where(id => (customer.CustomerEMail == id.CustomerEMail || customer.CustomerMobile == id.CustomerMobile && customer.CustomerPassword == id.CustomerPassword)).SingleOrDefault();
+                try
                 {
-                    //isvalue = true;
-                    userRole = value.role;
-                    break;
+                    return customer;
+                }
+                catch (NullReferenceException)
+                {
+                    return null;
                 }
             }
-            return userRole;
         }
     }
 }

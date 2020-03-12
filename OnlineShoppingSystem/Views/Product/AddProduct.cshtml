@@ -1,20 +1,21 @@
-﻿@model OnlineShoppingSystem.Models.ProductModel
+﻿@model OnlineShoppingSystem.Models.ProductViewModel
 
 @{
     ViewBag.Title = "AddProduct";
 }
 
 <h2>AddProduct</h2>
-@using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post))
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <table>
         <tr>
             <td>
                 @Html.Label("Product Name")
             </td>
             <td>
-                @Html.EditorFor(model => model.productName)
-                @Html.ValidationMessageFor(model => model.productName)
+                @Html.EditorFor(model => model.ProductName)
+                @Html.ValidationMessageFor(model => model.ProductName)
             </td>
         </tr>
         <tr>
@@ -22,8 +23,8 @@
                 @Html.Label("Category Id")
             </td>
             <td>
-                @Html.EditorFor(model => model.productCategoryId)
-                @Html.ValidationMessageFor(model => model.productCategoryId)
+                @Html.DropDownListFor(model => model.CategoryId , (IEnumerable<SelectListItem>)ViewBag.Category, "Select Category")
+                @Html.ValidationMessageFor(model => model.CategoryId)
             </td>
         </tr>
         <tr>
@@ -31,8 +32,8 @@
                 @Html.Label("Product Price")
             </td>
             <td>
-                @Html.EditorFor(model => model.productPrice)
-                @Html.ValidationMessageFor(model => model.productPrice)
+                @Html.EditorFor(model => model.ProductPrice)
+                @Html.ValidationMessageFor(model => model.ProductPrice)
             </td>
         </tr>
         <tr>
@@ -40,8 +41,8 @@
                 @Html.Label("Available Stock")
             </td>
             <td>
-                @Html.EditorFor(model => model.productStock)
-                @Html.ValidationMessageFor(model => model.productStock)
+                @Html.EditorFor(model => model.ProductStock)
+                @Html.ValidationMessageFor(model => model.ProductStock)
             </td>
         </tr>
         <tr>
@@ -49,7 +50,7 @@
                 @Html.ActionLink("Back", "Index")
             </td>
             <td>
-                <input  type="submit"/>
+                <input type="submit" />
             </td>
         </tr>
     </table>

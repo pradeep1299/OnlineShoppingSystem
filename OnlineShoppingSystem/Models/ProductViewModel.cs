@@ -1,35 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace OnlineShoppingSystem.Models
 {
-    public class ProductModel
+    public class ProductViewModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int productId
+        public int ProductId
         {
             get;
             set;
         }
-        public string productName
+        [Required (ErrorMessage = "Product Name is Required")]
+        [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Special Characters not allowed")]
+        public string ProductName
         {
             get;
             set;
         }
-        public int productStock
+        [Required(ErrorMessage = "Available stock is Required")]
+        public int ProductStock
         {
             get;
             set;
         }
-        public int productCategoryId
+        [Required(ErrorMessage = "Category is Required")]
+        public int CategoryId
         {
             get;
             set;
         }
-        public double productPrice
+        [Required(ErrorMessage = "Product Price is Required")]
+        public double ProductPrice
         {
             get;
             set;

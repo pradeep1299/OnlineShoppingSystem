@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -48,6 +52,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryRespository.cs" />
     <Compile Include="CustomerRespository.cs" />
     <Compile Include="Migrations\202002270441001_InitialCreate.cs" />
     <Compile Include="Migrations\202002270441001_InitialCreate.designer.cs">
@@ -84,6 +90,26 @@
     <Compile Include="Migrations\202003031146380_Product.cs" />
     <Compile Include="Migrations\202003031146380_Product.designer.cs">
       <DependentUpon>202003031146380_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003060528100_NameChanges.cs" />
+    <Compile Include="Migrations\202003060528100_NameChanges.designer.cs">
+      <DependentUpon>202003060528100_NameChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003061033410_Unique.cs" />
+    <Compile Include="Migrations\202003061033410_Unique.designer.cs">
+      <DependentUpon>202003061033410_Unique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003100835343_ProductChanges.cs" />
+    <Compile Include="Migrations\202003100835343_ProductChanges.designer.cs">
+      <DependentUpon>202003100835343_ProductChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111004357_sp.cs" />
+    <Compile Include="Migrations\202003111004357_sp.designer.cs">
+      <DependentUpon>202003111004357_sp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003111016305_sp_changes.cs" />
+    <Compile Include="Migrations\202003111016305_sp_changes.designer.cs">
+      <DependentUpon>202003111016305_sp_changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShoppingDB_Context.cs" />
@@ -131,6 +157,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003031146380_Product.resx">
       <DependentUpon>202003031146380_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003060528100_NameChanges.resx">
+      <DependentUpon>202003060528100_NameChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003061033410_Unique.resx">
+      <DependentUpon>202003061033410_Unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003100835343_ProductChanges.resx">
+      <DependentUpon>202003100835343_ProductChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111004357_sp.resx">
+      <DependentUpon>202003111004357_sp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003111016305_sp_changes.resx">
+      <DependentUpon>202003111016305_sp_changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

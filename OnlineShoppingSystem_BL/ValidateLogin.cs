@@ -5,7 +5,7 @@ namespace OnlineShoppingSystem_BL
 {
     public class ValidateLogin
     {
-        public static string validateSignIn(CustomerDetails customer)
+        public static CustomerDetails validateSignIn(CustomerDetails customer)
         {
             return CustomerRespository.LoginValidate(customer);
         }

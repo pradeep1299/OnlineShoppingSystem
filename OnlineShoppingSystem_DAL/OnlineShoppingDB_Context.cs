@@ -9,15 +9,25 @@ namespace OnlineShoppingSystem_DAL
         {
 
         }
-        public DbSet<CustomerDetails> CustomerDB
+        public DbSet<CustomerDetails> Customers
         {
             get;
             set;
         }
-        public DbSet<ProductDetails> ProductDB
+        public DbSet<Product> Products
         {
             get;
             set;
+        }
+        public DbSet<Category> Categorys
+        {
+            get;
+            set;
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().MapToStoredProcedures();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

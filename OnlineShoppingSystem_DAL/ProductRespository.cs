@@ -1,31 +1,54 @@
 ﻿using OnlineShoppingSystem_Entity;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace OnlineShoppingSystem_DAL
 {
     public class ProductRespository
     {
-        OnlineShoppingDB_Context context = new OnlineShoppingDB_Context();
+        //static OnlineShoppingDB_Context context = new OnlineShoppingDB_Context();
 
-        public IEnumerable<ProductDetails> GetProduct()
+        public IEnumerable<Product> GetProduct()
         {
-            return context.ProductDB.ToList();
+            using (OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                return context.Products.ToList();
+            }
         }
-        public void Add(ProductDetails product)
+        public void Add(Product product)
         {
-            context.ProductDB.Add(product);
-            context.SaveChanges();
+            using(OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                context.Entry(product).State = EntityState.Added;
+                context.SaveChanges();
+            }
         }
-        public ProductDetails GetProductDetails(int idProduct)
+        public Product GetProductDetails(int idProduct)
         {
-            return context.ProductDB.Where(id => id.productId == idProduct).SingleOrDefault();
+            using(OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                return context.Products.ToList().Where(id => id.ProductId == idProduct).SingleOrDefault();
+            }
         }
-        public void ProductDelete(ProductDetails product)
+        public static void ProductUpdate(Product product)
         {
-            context.ProductDB.Attach(product);
-            context.ProductDB.Remove(product);
-            context.SaveChanges();
+            using (OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                //product = context.ProductDB.FirstOrDefault(prod => prod.productId == product.productId);
+                context.Entry(product).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+        public void ProductDelete(Product product)
+        {
+            using(OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                product = context.Products.Find(product.ProductId);
+                context.Entry(product).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+            //context.ProductDB.Attach(product);  
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Category Details</h2>
+
+@Html.ActionLink("Add Category", "AddCategory")
+
+<table>
+    <tr>
+        <th>
+            Category Id
+        </th>
+        <th>
+            category Name
+        </th>
+    </tr>
+    @foreach (OnlineShoppingSystem_Entity.Category category in ViewBag.Category)
+    {
+        <tr>
+            <td>
+                @category.CategoryId
+            </td>
+            <td>
+                @category.CategoryName
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteCategory", new { id = category.CategoryId})
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Back", "Index")

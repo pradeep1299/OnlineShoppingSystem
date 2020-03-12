@@ -8,7 +8,7 @@ namespace OnlineShoppingSystem_BL
     public class ProductBL
     {
         static ProductRespository productRespository = new ProductRespository();
-        public static void AddProduct(ProductDetails product)
+        public static void AddProduct(Product product)
         {
             productRespository.Add(product);
         }
@@ -17,16 +17,20 @@ namespace OnlineShoppingSystem_BL
         //    return productRespository.GetProduct();
         //}
 
-        public static IEnumerable<ProductDetails> ProductDetails()
+        public static IEnumerable<Product> ProductDetails()
         {
-            IEnumerable<ProductDetails> productDetails = new ProductRespository().GetProduct();
+            IEnumerable<Product> productDetails = new ProductRespository().GetProduct();
             return productDetails;
         }
-        public ProductDetails GetProductDetails(int idProduct)
+        public Product GetProductDetails(int ProductId)
         {
-            return productRespository.GetProductDetails(idProduct);
+            return productRespository.GetProductDetails(ProductId);
         }
-        public static void ProductDelete(ProductDetails product)
+        public static void ProductUpdate(Product product)
+        {
+            ProductRespository.ProductUpdate(product);
+        }
+        public static void ProductDelete(Product product)
         {
             productRespository.ProductDelete(product);
         }

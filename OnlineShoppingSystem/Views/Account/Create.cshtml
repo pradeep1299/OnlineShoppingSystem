@@ -1,4 +1,4 @@
-﻿@model OnlineShoppingSystem.Models.CustomerSignup
+﻿@model OnlineShoppingSystem.Models.CustomerViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -6,7 +6,7 @@
 <h2>Create Account</h2>
 
 
-@using (Html.BeginForm("Create", "Signup", FormMethod.Post))
+@using (Html.BeginForm("Create", "Account", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <table>
@@ -15,8 +15,8 @@
                 @Html.Label("Name")
             </td>
             <td>
-                @Html.EditorFor(Model => Model.customerName)
-                @Html.ValidationMessageFor(model => model.customerName, "", new { @style = "color:red" })
+                @Html.EditorFor(Model => Model.CustomerName)
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @style = "color:red" })
             </td>
 
         </tr>
@@ -25,8 +25,8 @@
                 @Html.Label("Mobile Number")
             </td>
             <td>
-                @Html.EditorFor(Model => Model.customerMobile)
-                @Html.ValidationMessageFor(Model => Model.customerMobile, "", new { @style = "color:red" })
+                @Html.EditorFor(Model => Model.CustomerMobile)
+                @Html.ValidationMessageFor(Model => Model.CustomerMobile, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -34,8 +34,8 @@
                 @Html.Label("E-Mail Address")
             </td>
             <td>
-                @Html.EditorFor(Model => Model.customerEMail)
-                @Html.ValidationMessageFor(Model => Model.customerEMail, "", new { @style = "color:red" })
+                @Html.EditorFor(Model => Model.CustomerEMail)
+                @Html.ValidationMessageFor(Model => Model.CustomerEMail, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -43,8 +43,8 @@
                 @Html.Label("Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.customerPassword)
-                @Html.ValidationMessageFor(Model => Model.customerPassword, "", new { @style = "color:red" })
+                @Html.PasswordFor(Model => Model.CustomerPassword)
+                @Html.ValidationMessageFor(Model => Model.CustomerPassword, "", new { @style = "color:red" })
             </td>
         </tr>
         <tr>
@@ -52,8 +52,8 @@
                 @Html.Label("Confirm Password")
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.confirmPassword)
-                @Html.ValidationMessageFor(Model => Model.confirmPassword, "", new { @style = "color:red" })
+                @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @style = "color:red" })
             </td>
         </tr>
         @*<tr>
@@ -79,7 +79,6 @@
             </tr>*@
         <tr>
             <td>
-                <input type="button" id="backbtn" value="Back" />
             </td>
             <td>
                 <input type="submit" id="signupSubmit" />

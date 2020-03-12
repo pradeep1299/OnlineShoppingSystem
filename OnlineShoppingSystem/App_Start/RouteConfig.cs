@@ -12,13 +12,13 @@ namespace OnlineShoppingSystem
             routes.MapRoute(
                 name: "AddCustomer",
                 url: "signup/customer",
-                defaults: new { controller = "Signup", action = "Create", id = UrlParameter.Optional }
+                defaults: new { controller = "Account", action = "Create", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "LoginCustomer",
                 url: "login/customer",
-                defaults: new { controller = "SignIn", action = "Login", id = UrlParameter.Optional }
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

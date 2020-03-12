@@ -21,7 +21,7 @@ namespace OnlineShoppingSystem_Entity
         [Column("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int customerId
+        public int CustomerId
         {
             get;
             set;
@@ -30,7 +30,7 @@ namespace OnlineShoppingSystem_Entity
         //[RegularExpression(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", ErrorMessage = " Space and numbers not allowed")]
         //[StringLength(30, MinimumLength = 5)]
         [Column("Name")]
-        public string customerName
+        public string CustomerName
         {
             get;
             set;
@@ -38,7 +38,8 @@ namespace OnlineShoppingSystem_Entity
         //[Required(ErrorMessage = "Enter the Mobile Number")]
         //[RegularExpression(@"^[6789]\d{9}$", ErrorMessage ="Mobile Number is Invalid")]
         [Column("Mobile")]
-        public long customerMobile
+        [Index(IsUnique = true)]
+        public long CustomerMobile
         {
             get;
             set;
@@ -46,7 +47,7 @@ namespace OnlineShoppingSystem_Entity
         //[Required(ErrorMessage = "Enter your password")]
         //[RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contains upper case, lower case, Numbers, and special character")]
         [Column("Password")]
-        public string customerPassword
+        public string CustomerPassword
         {
             get;
             set;
@@ -54,12 +55,14 @@ namespace OnlineShoppingSystem_Entity
         //[Required(ErrorMessage = "Enter your E-mail address")]
         //[EmailAddress]
         [Column("E-mail Address")]
-        public string customerEMail
+        [Index(IsUnique = true)]
+        [MaxLength(50)]
+        public string CustomerEMail
         {
             get;
             set;
         }
-        public string role
+        public string Role
         {
             get;
             set;
@@ -96,11 +99,11 @@ namespace OnlineShoppingSystem_Entity
         public CustomerDetails() { }
         public CustomerDetails(int id,string name,long mobile,string email,string password)
         {
-            this.customerId = id;
-            this.customerName = name;
-            this.customerMobile = mobile;
-            this.customerEMail = email;
-            this.customerPassword = password;
+            this.CustomerId = id;
+            this.CustomerName = name;
+            this.CustomerMobile = mobile;
+            this.CustomerEMail = email;
+            this.CustomerPassword = password;
         }
     }
 }

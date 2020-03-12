@@ -47,6 +47,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +64,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,16 +139,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SignInController.cs" />
-    <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductModel.cs" />
-    <Compile Include="Models\CustomerSignup.cs" />
-    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\Mapper.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,11 +160,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\LoginDesign.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\SignIn\Login.cshtml" />
-    <Content Include="Views\Signup\Create.cshtml" />
-    <Content Include="Views\Admin\AddProduct.cshtml" />
-    <Content Include="Views\Admin\AdminIndex.cshtml" />
-    <Content Include="Views\Admin\DeleteProduct.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\AddProduct.cshtml" />
+    <Content Include="Views\Product\EditProduct.cshtml" />
+    <Content Include="Views\Product\DeleteProduct.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Product\AddCategory.cshtml" />
+    <Content Include="Views\Product\CategoryIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
