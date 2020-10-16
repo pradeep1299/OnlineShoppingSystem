@@ -19,11 +19,5 @@ namespace OnlineShoppingSystem.Models
             get;
             set;
         }
-        //public LoginViewModel() { }
-        //public LoginViewModel(string name, string key)
-        //{
-        //    name = Username;
-        //    key = Password;
-        //}
     }
 }

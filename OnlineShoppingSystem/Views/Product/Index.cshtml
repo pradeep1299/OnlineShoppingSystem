@@ -8,27 +8,21 @@
 <table>
     <tr>
         <th>
-            Product Id
+            Name
         </th>
         <th>
-            Product Name
-        </th>
-        <th>
-            Product Price
+            Price
         </th>
         <th>
             Stock
         </th>
         <th>
-            Category Id
+            Category Name
         </th>
     </tr>
     @foreach (OnlineShoppingSystem_Entity.Product product in ViewBag.Product)
     {
         <tr>
-            <td>
-                @product.ProductId
-            </td>
             <td>
                 @product.ProductName
             </td>
@@ -39,7 +33,7 @@
                 @product.ProductStock
             </td>
             <td>
-                @product.CategoryId
+                @product.Category.CategoryName
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditProduct", new { id = product.ProductId })

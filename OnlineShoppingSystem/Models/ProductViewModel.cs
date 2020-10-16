@@ -23,6 +23,7 @@ namespace OnlineShoppingSystem.Models
             set;
         }
         [Required(ErrorMessage = "Available stock is Required")]
+        [RegularExpression(@"^\d{2}$", ErrorMessage = "Stock Greater than 10 or Less than 100")]
         public int ProductStock
         {
             get;
@@ -35,6 +36,7 @@ namespace OnlineShoppingSystem.Models
             set;
         }
         [Required(ErrorMessage = "Product Price is Required")]
+        [RegularExpression(@"^\d{0,6}(\.\d{1,4})?$", ErrorMessage = "Please Enter Your Correct Product Price")]
         public double ProductPrice
         {
             get;

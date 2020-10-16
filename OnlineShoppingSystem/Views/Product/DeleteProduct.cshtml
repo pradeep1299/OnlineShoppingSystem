@@ -5,7 +5,7 @@
 }
 
 <h2>Delete Product</h2>
-@using (Html.BeginForm("DeleteProduct", "Product", FormMethod.Post))
+@using (Html.BeginForm("DeleteProduct", "Product", FormMethod.Post, new { onclick = "return confirm('Confirm Delete?');" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(Model => Model.ProductId)

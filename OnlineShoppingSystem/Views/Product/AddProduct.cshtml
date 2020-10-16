@@ -3,55 +3,63 @@
 @{
     ViewBag.Title = "AddProduct";
 }
+<head>
+    <link href="~/Design/OnlineShoppingDesign.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <h2>Add Product</h2>
+    @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <table>
+            <tr>
+                <td>
+                    @Html.Label("Product Name")
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.ProductName)
+                    @Html.ValidationMessageFor(model => model.ProductName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Category Id")
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.Category, "Select Category")
+                    @Html.ValidationMessageFor(model => model.CategoryId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Product Price")
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.ProductPrice)
+                    @Html.ValidationMessageFor(model => model.ProductPrice)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Available Stock")
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.ProductStock)
+                    @Html.ValidationMessageFor(model => model.ProductStock)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Back", "Index")
+                </td>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    }
+</body>
 
-<h2>AddProduct</h2>
-@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <table>
-        <tr>
-            <td>
-                @Html.Label("Product Name")
-            </td>
-            <td>
-                @Html.EditorFor(model => model.ProductName)
-                @Html.ValidationMessageFor(model => model.ProductName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Category Id")
-            </td>
-            <td>
-                @Html.DropDownListFor(model => model.CategoryId , (IEnumerable<SelectListItem>)ViewBag.Category, "Select Category")
-                @Html.ValidationMessageFor(model => model.CategoryId)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Product Price")
-            </td>
-            <td>
-                @Html.EditorFor(model => model.ProductPrice)
-                @Html.ValidationMessageFor(model => model.ProductPrice)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Available Stock")
-            </td>
-            <td>
-                @Html.EditorFor(model => model.ProductStock)
-                @Html.ValidationMessageFor(model => model.ProductStock)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.ActionLink("Back", "Index")
-            </td>
-            <td>
-                <input type="submit" />
-            </td>
-        </tr>
-    </table>
-}

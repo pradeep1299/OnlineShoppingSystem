@@ -42,5 +42,21 @@ namespace OnlineShoppingSystem_DAL
                 }
             }
         }
+        public CustomerDetails GetCustomerDetails(int Id)
+        {
+            using (OnlineShoppingDB_Context Context = new OnlineShoppingDB_Context())
+            {
+                return Context.Customers.FirstOrDefault(p => p.CustomerId == Id);
+            }
+
+        }
+        public static void CustomerUpdate(CustomerDetails Customer)
+        {
+            using (OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
+            {
+                context.Entry(Customer).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 }

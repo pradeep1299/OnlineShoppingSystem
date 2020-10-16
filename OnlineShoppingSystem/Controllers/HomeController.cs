@@ -6,6 +6,7 @@ using OnlineShoppingSystem_BL;
 
 namespace OnlineShoppingSystem.Controllers
 {
+    [Authorize(Roles = "Admin,Customer")]
     public class HomeController : Controller
     {
         // GET: Home

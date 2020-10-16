@@ -13,7 +13,7 @@ namespace OnlineShoppingSystem_DAL
         {
             using (OnlineShoppingDB_Context context = new OnlineShoppingDB_Context())
             {
-                return context.Products.ToList();
+                return context.Products.Include("Category").ToList();
             }
         }
         public void Add(Product product)

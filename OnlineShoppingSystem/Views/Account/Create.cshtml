@@ -2,87 +2,102 @@
 @{
     ViewBag.Title = "Create";
 }
+<head>
+    <link href="~/Design/OnlineShoppingDesign.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+    <h2 class="loginheader">Create Account</h2>
 
-<h2>Create Account</h2>
-
-
-@using (Html.BeginForm("Create", "Account", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    <table>
-        <tr>
-            <td>
-                @Html.Label("Name")
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.CustomerName)
-                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @style = "color:red" })
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Mobile Number")
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.CustomerMobile)
-                @Html.ValidationMessageFor(Model => Model.CustomerMobile, "", new { @style = "color:red" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("E-Mail Address")
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.CustomerEMail)
-                @Html.ValidationMessageFor(Model => Model.CustomerEMail, "", new { @style = "color:red" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.CustomerPassword)
-                @Html.ValidationMessageFor(Model => Model.CustomerPassword, "", new { @style = "color:red" })
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.Label("Confirm Password")
-            </td>
-            <td>
-                @Html.PasswordFor(Model => Model.ConfirmPassword)
-                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @style = "color:red" })
-            </td>
-        </tr>
-        @*<tr>
+    @using (Html.BeginForm("Create", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true);
+        <table align="center" class="signuptable">
+            <tr>
                 <td>
-                    @Html.Label("Gender")
-
+                    @Html.Label("Name")
                 </td>
                 <td>
-                    Male
-                    @Html.RadioButtonFor(model => model.gender, "Male")
-                    Female
-                    @Html.RadioButtonFor(model => model.gender, "Female")
+                    @Html.EditorFor(Model => Model.CustomerName)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.CustomerName, "", new { @style = "color:red" })
                 </td>
             </tr>
             <tr>
                 <td>
-                    @Html.Label("Category")
-
+                    @Html.Label("Mobile Number")
                 </td>
                 <td>
-                    @Html.EnumDropDownListFor(model => model.category, "Select Category")
+                    @Html.EditorFor(Model => Model.CustomerMobile)
                 </td>
-            </tr>*@
-        <tr>
-            <td>
-            </td>
-            <td>
-                <input type="submit" id="signupSubmit" />
-            </td>
-        </tr>
-    </table>
-}
+                <td>
+                    @Html.ValidationMessageFor(Model => Model.CustomerMobile, "", new { @style = "color:red" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("E-Mail Address")
+                </td>
+                <td>
+                    @Html.EditorFor(Model => Model.CustomerEMail)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(Model => Model.CustomerEMail, "", new { @style = "color:red" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Password")
+                </td>
+                <td>
+                    @Html.PasswordFor(Model => Model.CustomerPassword)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(Model => Model.CustomerPassword, "", new { @style = "color:red" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Confirm Password")
+                </td>
+                <td>
+                    @Html.PasswordFor(Model => Model.ConfirmPassword)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @style = "color:red" })
+                </td>
+            </tr>
+            @*<tr>
+                    <td>
+                        @Html.Label("Gender")
+
+                    </td>
+                    <td>
+                        Male
+                        @Html.RadioButtonFor(model => model.gender, "Male")
+                        Female
+                        @Html.RadioButtonFor(model => model.gender, "Female")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Category")
+
+                    </td>
+                    <td>
+                        @Html.EnumDropDownListFor(model => model.category, "Select Category")
+                    </td>
+                </tr>*@
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" id="signupSubmit" value="Create" class="button" />
+                </td>
+            </tr>
+        </table>
+    }
+</body>

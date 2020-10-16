@@ -1,43 +1,47 @@
-﻿@model OnlineShoppingSystem.Models.ProductViewModel
+﻿@model OnlineShoppingSystem.Models.ProfileViewModel
 
 @{
-    ViewBag.Title = "EditProduct";
+    ViewBag.Title = "UpdateDetails";
+    Layout = "~/Views/Shared/_OnlineShoppingMaster.cshtml";
 }
+
+<h2>UpdateDetails</h2>
+
 <script src="~/scripts/jquery-1.10.2.min.js"></script>
 <script src="~/scripts/jquery.validate.min.js"></script>
 <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
 
-<h2>Update Product</h2>
-
-@using (Html.BeginForm("EditProduct", "Product", FormMethod.Post))
+@using (Html.BeginForm("UpdateDetails", "Account", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    @Html.HiddenFor(model => model.ProductId)
-    @Html.HiddenFor(model => model.CategoryId)
+    @Html.HiddenFor(model => model.CustomerId)
+    @Html.HiddenFor(model => model.CustomerPassword)
+    @Html.HiddenFor(model => model.Role)
+
     <table>
         <tr>
             <td>
-                @Html.LabelFor(model => model.ProductName)
+                @Html.LabelFor(model => model.CustomerName)
             </td>
             <td>
-                @Html.EditorFor(model => model.ProductName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.ProductPrice)
-            </td>
-            <td>
-                @Html.EditorFor(model => model.ProductPrice)
+                @Html.EditorFor(model => model.CustomerName)
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(model => model.ProductStock)
+                @Html.LabelFor(model => model.CustomerMobile)
             </td>
             <td>
-                @Html.EditorFor(model => model.ProductStock)
+                @Html.EditorFor(model => model.CustomerMobile)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.CustomerEMail)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.CustomerEMail)
             </td>
         </tr>
         <tr>
@@ -50,4 +54,3 @@
         </tr>
     </table>
 }
-

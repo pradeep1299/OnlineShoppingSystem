@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "AddCategory";
 }
-
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/jquery.validate.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
 <h2>AddProduct</h2>
 @using (Html.BeginForm("AddCategory", "Product", FormMethod.Post))
 {
@@ -23,7 +25,6 @@
             </td>
             <td>
                 @Html.EditorFor(model => model.CategoryName )
-                @Html.ValidationMessageFor(model => model.CategoryName)
             </td>
         </tr>
         <tr>

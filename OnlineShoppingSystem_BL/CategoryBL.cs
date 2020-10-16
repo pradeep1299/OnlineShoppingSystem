@@ -5,23 +5,30 @@ using System.Collections.Generic;
 
 namespace OnlineShoppingSystem_BL
 {
-    public class CategoryBL
+    interface ICategoryBL
+    {
+        void AddCategory(Category category);
+        IEnumerable<Category> CategoryDetails();
+        Category GetCategoryDetails(int categoryId);
+        void CategoryDelete(int categoryId);
+    }
+    public class CategoryBL : ICategoryBL
     {
         static CategoryRespository categoryRespository = new CategoryRespository();
-        public static void AddCategory(Category category)
+        public void AddCategory(Category category)
         {
             categoryRespository.Add(category);
         }
-        public static IEnumerable<Category> CategoryDetails()
+        public IEnumerable<Category> CategoryDetails()
         {
             IEnumerable<Category> category = new CategoryRespository().GetCategory();
             return category;
         }
-        public static Category GetCategoryDetails(int categoryId)
+        public Category GetCategoryDetails(int categoryId)
         {
             return categoryRespository.GetCategoryDetail(categoryId);
         }
-        public static void CategoryDelete(int categoryId)
+        public void CategoryDelete(int categoryId)
         {
             categoryRespository.CategoryDelete(categoryId);
         }

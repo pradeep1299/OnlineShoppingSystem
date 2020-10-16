@@ -1,0 +1,37 @@
+﻿@model OnlineShoppingSystem.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_OnlineShoppingMaster.cshtml";
+}
+
+<h2>Profile</h2>
+@using (Html.BeginForm("UpdateDetails", "Account", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Role)
+    <table>
+        <tr>
+            <td>Customer Id</td>
+            <td>@Model.CustomerId</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.CustomerName</td>
+        </tr>
+        <tr>
+            <td>Mobile Number</td>
+            <td>@Model.CustomerMobile</td>
+        </tr>
+        <tr>
+            <td>E-Mail Id</td>
+            <td>@Model.CustomerEMail</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Update", "UpdateDetails", new { id = Model.CustomerId })
+                @Html.ActionLink("Back", "Index", "Home")
+                @Html.ActionLink("Change Password", "ChangePassword", new { id = Model.CustomerId })
+            </td>
+        </tr>
+    </table>
+}

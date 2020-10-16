@@ -2,9 +2,14 @@
 
 namespace OnlineShoppingSystem.Models
 {
-    public class CustomerViewModel
+    public class ProfileViewModel
     {
         public int CustomerId
+        {
+            get;
+            set;
+        }
+        public string Role
         {
             get;
             set;
@@ -39,14 +44,6 @@ namespace OnlineShoppingSystem.Models
         [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password must contains upper case, lower case, Numbers, or special character")]
         [StringLength(15, MinimumLength = 8)]
         public string CustomerPassword
-        {
-            get;
-            set;
-        }
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Confirmation Password is required!!")]
-        [Compare("CustomerPassword", ErrorMessage = "Password and Confirmation Password must match.")]
-        public string ConfirmPassword
         {
             get;
             set;

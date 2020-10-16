@@ -5,10 +5,19 @@ using System;
 
 namespace OnlineShoppingSystem_BL
 {
+    interface IProductBL
+    {
+        void AddProduct(Product product);
+        IEnumerable<Product> ProductDetails();
+        Product GetProductDetails(int ProductId);
+        void ProductUpdate(Product product);
+        void ProductDelete(Product product);
+    }
+
     public class ProductBL
     {
         static ProductRespository productRespository = new ProductRespository();
-        public static void AddProduct(Product product)
+        public void AddProduct(Product product)
         {
             productRespository.Add(product);
         }
@@ -17,7 +26,7 @@ namespace OnlineShoppingSystem_BL
         //    return productRespository.GetProduct();
         //}
 
-        public static IEnumerable<Product> ProductDetails()
+        public IEnumerable<Product> ProductDetails()
         {
             IEnumerable<Product> productDetails = new ProductRespository().GetProduct();
             return productDetails;
@@ -26,11 +35,11 @@ namespace OnlineShoppingSystem_BL
         {
             return productRespository.GetProductDetails(ProductId);
         }
-        public static void ProductUpdate(Product product)
+        public void ProductUpdate(Product product)
         {
             ProductRespository.ProductUpdate(product);
         }
-        public static void ProductDelete(Product product)
+        public void ProductDelete(Product product)
         {
             productRespository.ProductDelete(product);
         }

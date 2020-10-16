@@ -6,31 +6,34 @@ using System.Collections.Generic;
 
 namespace OnlineShoppingSystem.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
+        ProductBL productBL = new ProductBL();
+        CategoryBL categoryBL = new CategoryBL();
         Product product = new Product();
         // GET: Admin
         public ActionResult Index()
         {
-            IEnumerable<Product> productDetails = ProductBL.ProductDetails();
+            IEnumerable<Product> productDetails = productBL.ProductDetails();
             ViewBag.Product = productDetails;
             return View(productDetails);
         }
         [HttpGet]
         public ActionResult AddProduct()
         {
-            ViewBag.Category = new SelectList(CategoryBL.CategoryDetails(), "CategoryId", "CategoryName");
+            ViewBag.Category = new SelectList(categoryBL.CategoryDetails(), "CategoryId", "CategoryName");
             return View();
         }
-        [HttpPost]
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult AddProduct(ProductViewModel productModel)
         {
-            ViewBag.Category = new SelectList(CategoryBL.CategoryDetails(), "CategoryId", "CategoryName");
+            ViewBag.Category = new SelectList(categoryBL.CategoryDetails(), "CategoryId", "CategoryName");
             if (ModelState.IsValid)
             {
                 product = AutoMapper.Mapper.Map<ProductViewModel, Product>(productModel);
-                ProductBL.AddProduct(product);
+                productBL.AddProduct(product);
                 return RedirectToAction("Index");
             }
             return View();
@@ -52,7 +55,7 @@ namespace OnlineShoppingSystem.Controllers
             if (ModelState.IsValid)
             {
                 productDetails = AutoMapper.Mapper.Map<ProductViewModel, Product>(productModel);
-                ProductBL.ProductUpdate(productDetails);
+                productBL.ProductUpdate(productDetails);
                 return RedirectToAction("Index");
             }
             return View();
@@ -70,13 +73,13 @@ namespace OnlineShoppingSystem.Controllers
         public ActionResult DeleteProduct(ProductViewModel productModel)
         {
             product = AutoMapper.Mapper.Map<ProductViewModel, Product>(productModel);
-            ProductBL.ProductDelete(product);
+            productBL.ProductDelete(product);
             return RedirectToAction("Index");
         }
         Category category = new Category();
         public ActionResult CategoryIndex()
         {
-            IEnumerable<Category> categoryDetails = CategoryBL.CategoryDetails();
+            IEnumerable<Category> categoryDetails = categoryBL.CategoryDetails();
             ViewBag.Category = categoryDetails;
             return View(categoryDetails);
         }
@@ -85,21 +88,21 @@ namespace OnlineShoppingSystem.Controllers
         {
             return View();
         }
-        [HttpPost]
         [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult AddCategory(CategoryViewModel categoryModel)
         {
             if (ModelState.IsValid)
             {
                 category = AutoMapper.Mapper.Map<CategoryViewModel, Category>(categoryModel);
-                CategoryBL.AddCategory(category);
+                categoryBL.AddCategory(category);
                 return RedirectToAction("CategoryIndex");
             }
             return View();
         }
         public ActionResult DeleteCategory(int id)
         {
-            CategoryBL.CategoryDelete(id);
+            categoryBL.CategoryDelete(id);
             return RedirectToAction("CategoryIndex");
         }
     }
