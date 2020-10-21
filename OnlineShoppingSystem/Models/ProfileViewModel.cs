@@ -15,7 +15,7 @@ namespace OnlineShoppingSystem.Models
             set;
         }
         [Required(ErrorMessage = "Enter the name")]
-        [RegularExpression(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", ErrorMessage = " Space and numbers not allowed")]
+        [RegularExpression(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", ErrorMessage = "Special character and Numbers not allowed")]
         [StringLength(30, MinimumLength = 3)]
         public string CustomerName
         {

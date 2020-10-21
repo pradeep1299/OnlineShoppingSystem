@@ -1,19 +1,16 @@
-﻿using OnlineShoppingSystem_Entity;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using OnlineShoppingSystem.Models;
+﻿using System.Web.Mvc;
 using OnlineShoppingSystem_BL;
+using OnlineShoppingSystem_Entity;
 
 namespace OnlineShoppingSystem.Controllers
 {
     [Authorize(Roles = "Admin,Customer")]
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
-            //IEnumerable<CustomerDetails> customer = customerRespository.ReturnCustomerDetails();
-            return View("Index");
+            Product products = TempData["product"] as Product;
+            return View(products);
         }
     }
 }

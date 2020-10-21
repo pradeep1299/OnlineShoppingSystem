@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/_OnlineShoppingMaster.cshtml";
 }
 <script src="~/scripts/jquery-1.10.2.min.js"></script>
 <script src="~/scripts/jquery.validate.min.js"></script>
@@ -30,6 +31,7 @@
             </td>
             <td>
                 @Html.EditorFor(model => model.ProductPrice)
+                @Html.ValidationMessageFor(model => model.ProductPrice)
             </td>
         </tr>
         <tr>
@@ -38,6 +40,7 @@
             </td>
             <td>
                 @Html.EditorFor(model => model.ProductStock)
+                @Html.ValidationMessageFor(model => model.ProductStock)
             </td>
         </tr>
         <tr>

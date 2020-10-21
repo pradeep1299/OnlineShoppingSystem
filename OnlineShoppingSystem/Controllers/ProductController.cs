@@ -17,6 +17,8 @@ namespace OnlineShoppingSystem.Controllers
         {
             IEnumerable<Product> productDetails = productBL.ProductDetails();
             ViewBag.Product = productDetails;
+            TempData["product"] = product;
+            RedirectToAction("Index", "Home");
             return View(productDetails);
         }
         [HttpGet]
@@ -38,6 +40,7 @@ namespace OnlineShoppingSystem.Controllers
             }
             return View();
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult EditProduct(int id)
         {
@@ -56,7 +59,7 @@ namespace OnlineShoppingSystem.Controllers
             {
                 productDetails = AutoMapper.Mapper.Map<ProductViewModel, Product>(productModel);
                 productBL.ProductUpdate(productDetails);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Product");
             }
             return View();
         }

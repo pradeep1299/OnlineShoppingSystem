@@ -16,7 +16,6 @@ namespace OnlineShoppingSystem.Models
             set;
         }
         [Required (ErrorMessage = "Product Name is Required")]
-        [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Special Characters not allowed")]
         public string ProductName
         {
             get;
